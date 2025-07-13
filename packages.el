@@ -81,3 +81,5 @@
 (package! monkeytype)
 
 (package! boon-tuts :recipe (:local-repo "boon-tuts"))
+
+(package! simply-annotate)

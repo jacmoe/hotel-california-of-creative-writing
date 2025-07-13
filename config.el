@@ -45,7 +45,7 @@
 (defvar my-storage-directory "~/Dropbox/skriv/")
 (defvar my-personal-dictionary (concat my-storage-directory "aspell-en")) ; store personal dictionary here
 (setq bookmark-default-file (concat my-storage-directory "bookmarks")) ; Where to save the bookmarks file
-(setq annotate-file (concat my-storage-directory "annotations"))
+(setq my-annotate-file (concat my-storage-directory "annotations/annotations.el"))
 (setq bib-file (concat my-storage-directory "jacmoe.bib"))
 (defvar org-heatmap-db-location (concat my-storage-directory "org-heatmap.db"))
 
@@ -643,10 +643,28 @@
 ;; https://github.com/bastibe/annotate.el                                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add annotations to arbitrary files without changing the files themselves.
-(use-package! annotate
+(use-package! simply-annotate
   :defer t
   :config
-  (setq annotate-database-confirm-deletion t))
+  ;; Customize highlight colors
+  ;; (simply-annotate-highlight-face '(:background "lightblue" :foreground "darkblue"))
+
+  ;; Change annotation buffer height (fraction of frame)
+  (simply-annotate-buffer-height 0.25)
+
+  ;; Custom storage location
+  (simply-annotate-file my-annotate-file)
+
+  ;; Set display style
+  (simply-annotate-display-style 'both) ; 'highlight, 'fringe, or 'both
+
+  ;; Customize fringe indicators
+  (simply-annotate-fringe-indicator 'right-triangle)
+  (simply-annotate-fringe-face 'simply-annotate-fringe-face)
+
+  :bind
+  ("C-c A" . simply-annotate-mode)
+)
   
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
