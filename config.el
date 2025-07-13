@@ -645,18 +645,15 @@
 ;; add annotations to arbitrary files without changing the files themselves.
 (use-package! simply-annotate
   :defer t
-  :config
+  :custom
   ;; Customize highlight colors
   ;; (simply-annotate-highlight-face '(:background "lightblue" :foreground "darkblue"))
-
-  ;; Change annotation buffer height (fraction of frame)
-  (simply-annotate-buffer-height 0.25)
 
   ;; Custom storage location
   (simply-annotate-file my-annotate-file)
 
   ;; Set display style
-  (simply-annotate-display-style 'both) ; 'highlight, 'fringe, or 'both
+  (simply-annotate-display-style 'fringe) ; 'highlight, 'fringe, or 'both
 
   ;; Customize fringe indicators
   (simply-annotate-fringe-indicator 'right-triangle)
