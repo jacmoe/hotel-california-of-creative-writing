@@ -1,4 +1,10 @@
-* doom.d
+* doom.d [Moved to codeberg]
+
+*Achtung*: This repository will not be updated.
+
+Development will continue at -> https://codeberg.org/jacmoe/hotel-california-of-creative-writing
+
+----------------------------------------------------------------------------------
 
 My =Doom-Emacs= configuration.
 
